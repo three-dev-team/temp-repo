@@ -3,9 +3,22 @@ package com.example.demo.service;
 import com.example.demo.dto.BoardDTO;
 import com.example.demo.entity.Board;
 
+import java.util.List;
+
 public interface BoardService {
 
-    BoardDTO getDetail(long bno);
+    default Board convertDtoToEntity(BoardDTO boardDTO){
+        return Board.builder()
+                .bno(boardDTO.getBno())
+                .title(boardDTO.getTitle())
+                .writer(boardDTO.getWriter())
+                .content(boardDTO.getContent())
+                .readCount(boardDTO.getReadCount())
+                .cmtQty(boardDTO.getCmtQty())
+                .fileQty(boardDTO.getFileQty())
+                .build();
+    }
+
 
     default BoardDTO convertEntityToDto(Board board) {
         return BoardDTO.builder()
@@ -20,4 +33,7 @@ public interface BoardService {
                 .modDate(board.getModDate())
                 .build();
     }
+
+    List<BoardDTO> getList();
+    BoardDTO getDetail(long bno);
 }
