@@ -31,9 +31,11 @@ public interface BoardService {
                 .cmtQty(board.getCmtQty())
                 .fileQty(board.getFileQty())
                 .regDate(board.getRegDate())
-                .modDate(board.getModDate())
+                .modDate(board.getUpdateDate())
                 .build();
     }
+
+
 
 
     Long insert(BoardDTO boardDTO);
