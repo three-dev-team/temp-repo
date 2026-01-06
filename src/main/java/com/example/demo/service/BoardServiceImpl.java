@@ -16,6 +16,10 @@ import java.util.List;
 public class BoardServiceImpl implements BoardService {
 
     private final BoardRepository boardRepository;
+  
+    public String getBoard() {
+        return "Board Data";
+    }
 
     @Override
     public List<BoardDTO> getList() {
@@ -39,5 +43,11 @@ public class BoardServiceImpl implements BoardService {
         board.setReadCount(board.getReadCount() + 1);
 
         return convertEntityToDto(board);
+    }
+
+    @Override
+    public Long insert(BoardDTO boardDTO) {
+        Long bno = boardRepository.save(convertDtoToEntity(boardDTO)).getBno();
+        return bno;
     }
 }

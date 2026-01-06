@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -13,12 +15,19 @@ import java.util.List;
 @RequiredArgsConstructor
 @Controller
 public class BoardController {
+    private final BoardService boardService;
 
     private final BoardService boardService;
 
     @GetMapping("/board/register")
     public String register() {
         return "board/register";
+    }
+
+    @PostMapping("/board/register")
+    public String register(BoardDTO boardDTO){
+        Long bno = boardService.insert(boardDTO);
+        return "redirect:/board/list";
     }
 
     @GetMapping("/board/list")

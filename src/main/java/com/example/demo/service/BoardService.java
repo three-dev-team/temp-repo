@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface BoardService {
 
+
     default Board convertDtoToEntity(BoardDTO boardDTO){
         return Board.builder()
                 .bno(boardDTO.getBno())
@@ -34,6 +35,8 @@ public interface BoardService {
                 .build();
     }
 
+
+    Long insert(BoardDTO boardDTO);
     List<BoardDTO> getList();
     BoardDTO getDetail(long bno);
 }
