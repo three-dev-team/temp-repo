@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 @Service
 public interface BoardService {
 
+
+
     default Board convertDtoToEntity(BoardDTO boardDTO){
         return Board.builder()
                 .bno(boardDTO.getBno())
@@ -34,4 +36,5 @@ public interface BoardService {
     }
 
 
+    Long insert(BoardDTO boardDTO);
 }
