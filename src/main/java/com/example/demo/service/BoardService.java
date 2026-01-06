@@ -2,11 +2,10 @@ package com.example.demo.service;
 
 import com.example.demo.dto.BoardDTO;
 import com.example.demo.entity.Board;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
-
+@Service
 public interface BoardService {
-
 
     default Board convertDtoToEntity(BoardDTO boardDTO){
         return Board.builder()
@@ -20,8 +19,7 @@ public interface BoardService {
                 .build();
     }
 
-
-    default BoardDTO convertEntityToDto(Board board) {
+    default BoardDTO convertEntityToDto(Board board){
         return BoardDTO.builder()
                 .bno(board.getBno())
                 .title(board.getTitle())
@@ -31,14 +29,9 @@ public interface BoardService {
                 .cmtQty(board.getCmtQty())
                 .fileQty(board.getFileQty())
                 .regDate(board.getRegDate())
-                .modDate(board.getUpdateDate())
+                .modDate(board.getModDate())
                 .build();
     }
 
 
-
-
-    Long insert(BoardDTO boardDTO);
-    List<BoardDTO> getList();
-    BoardDTO getDetail(long bno);
 }
