@@ -6,17 +6,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.List;
-
+import org.springframework.web.bind.annotation.RequestParam;
 
 @RequiredArgsConstructor
-@RequestMapping("/board/*")
 @Controller
 public class BoardController {
-    private final BoardService boardService;
 
+    private final BoardService boardService;
 
     @GetMapping("/board/register")
     public String register() {
@@ -24,11 +20,14 @@ public class BoardController {
     }
 
     @GetMapping("/board/list")
-    public void list(Model model) {
+    public String list() {
+        return "board/list";
     }
 
     @GetMapping("/board/detail")
-    public String detail() {
+    public String detail(@RequestParam("bno") long bno, Model model) {
+        BoardDTO boardDTO = boardService.getDetail(bno);
+        model.addAttribute("board", boardDTO);
         return "board/detail";
     }
 }
