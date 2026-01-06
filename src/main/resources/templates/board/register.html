@@ -9,22 +9,6 @@
 <body>
 <div layout:fragment="content">
     <h1>게시글 작성 페이지</h1>
-        <form action="/board/register" method="post" enctype="multipart/form-data">
-            <div class="mb-3">
-                <label for="t" class="form-label">Title</label>
-                <input type="text" name="title" class="form-control" id="t" placeholder="title...">
-            </div>
-            <div class="mb-3">
-                <label for="w" class="form-label">Writer</label>
-                <input type="text" name="writer" class="form-control" id="w" placeholder="writer..." >
-            </div>
-            <div class="mb-3">
-                <label for="c" class="form-label">Content</label>
-                <textarea class="form-control" name="content" id="c" rows="5" cols="30" placeholder="Content..."></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary" id="regBtn">register</button>
-        </form>
 </div>
 </body>
 </html>
