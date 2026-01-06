@@ -19,7 +19,7 @@ public class TimeBase {
     private LocalDateTime regDate;
 
     @LastModifiedDate
-    @Column(name="mod_date")
-    private LocalDateTime modDate;
+    @Column(name="update_date")
+    private LocalDateTime updateDate;
 
 }
