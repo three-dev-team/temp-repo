@@ -25,6 +25,9 @@ public class BoardController {
 
     @GetMapping("/board/list")
     public void list(Model model) {
+        List<BoardDTO> list = boardService.getList();
+        model.addAttribute("list",list);
+
     }
 
     @GetMapping("/board/detail")
