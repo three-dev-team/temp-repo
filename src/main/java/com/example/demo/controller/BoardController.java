@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class BoardController {
 
-    @GetMapping("/board/write")
-    public String write() {
-        return "board/write";
+    @GetMapping("/board/register")
+    public String register() {
+        return "board/register";
     }
 
     @GetMapping("/board/list")

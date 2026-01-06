@@ -1,12 +1,38 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-</head>
-<body>
-<header th:fragment="header">
-    <h2>헤더</h2>
-    <hr>
-</header>
-</body>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<div th:fragment="header">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+
+            <!-- 왼쪽: 메뉴 -->
+            <div class="d-flex">
+                <ul class="navbar-nav gap-3">
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary" th:href="@{/board/register}">write</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary" th:href="@{/board/list}">board</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 가운데: 로고 -->
+            <a class="navbar-brand position-absolute start-50 translate-middle-x" href="/">
+            </a>
+
+            <!-- 오른쪽 -->
+            <div class="d-flex gap-3 align-items-center">
+                <th:block>
+                    <a class="nav-link text-secondary" th:href="@{/user/signup}">SIGN UP</a>
+                    <a class="nav-link text-dark" th:href="@{/user/login}">LOGIN</a>
+                </th:block>
+
+            </div>
+
+        </div>
+    </nav>
+</div>
 </html>
