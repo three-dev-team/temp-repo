@@ -4,7 +4,6 @@ import com.example.demo.dto.BoardDTO;
 import com.example.demo.entity.Board;
 import org.springframework.stereotype.Service;
 
-@Service
 public interface BoardService {
 
     default Board convertDtoToEntity(BoardDTO boardDTO){
