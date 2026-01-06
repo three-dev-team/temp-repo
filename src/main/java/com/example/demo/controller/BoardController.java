@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Controller
 public class BoardController {
@@ -20,8 +22,9 @@ public class BoardController {
     }
 
     @GetMapping("/board/list")
-    public String list() {
-        return "board/list";
+    public void list(Model model) {
+        List<BoardDTO> list = boardService.getList();
+        model.addAttribute("list",list);
     }
 
     @GetMapping("/board/detail")
